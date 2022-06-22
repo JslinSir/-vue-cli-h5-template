@@ -1,0 +1,13 @@
+// 工具类，mixins
+
+@mixin line($row:1) {
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    overflow: hidden;
+    -webkit-line-clamp: $row;
+  }
+
+

@@ -1,0 +1,106 @@
+/**
+* 基础样式类
+**/
+
+@import './utils/hairline';
+@import './utils/lineclamp';
+ 
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--body-color);
+    color: var(--font-color);
+    user-select: none;
+    font-family: var(--font-family);
+    font-size: var(--font24);
+    overflow: hidden;
+}
+
+html {
+    overflow: hidden;
+}
+
+
+// 图片禁止长按拖拽
+img {
+    user-select: none;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+
+// ******* 文本省略  ******** //
+.line-1 {
+    @include line(1);
+}
+
+.line-2 {
+    @include line(2);
+}
+
+.line-3 {
+    @include line(3);
+}
+
+// ********  border ********** //
+.border-none {
+    border: none !important;
+}
+
+.border {
+    @include hairline-surround();
+}
+
+.border-top {
+    @include hairline-top();
+}
+
+.border-bottom {
+    @include hairline-bottom();
+}
+
+.border-left {
+    @include hairline-left();
+}
+
+.border-right {
+    @include hairline-right();
+}
+
+// ******** 动画 ************ //
+
+
+
+// ******** 底部 安全区域 ************ //
+@supports (bottom: constant(safe-area-inset-bottom)) {
+    .safe-area-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+@supports (bottom: env(safe-area-inset-bottom)) {
+    .safe-area-bottom {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
